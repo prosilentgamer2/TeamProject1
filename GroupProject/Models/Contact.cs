@@ -13,9 +13,10 @@ namespace GroupProject.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Please enter a valid phone number")]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
         [Required(ErrorMessage = "Please enter an email.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; }
 
         public string Organization {  get; set; }
