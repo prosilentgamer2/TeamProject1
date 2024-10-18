@@ -34,7 +34,7 @@
             <option value="">select a category</option>
             @foreach (Category c in ViewBag.Contact.Category)
             {
-                <option value="@c.Category">@c.Category</option>
+                <option value="@c.CategoryID">@c.Name</option>
             }
         </select>
     </div>
@@ -44,7 +44,7 @@
         <input asp-for="Organization" class="form-control" />
     </div>
 
-    <input type="hidden" asp-for="ContactId" />
+    <input type="hidden" asp-for="ContactID" />
     
 
     <button type="submit" class="btn btn-primary">@ViewBag.Action</button>

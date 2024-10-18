@@ -24,5 +24,8 @@ namespace GroupProject.Models
         [Range(0, Int32.MaxValue, ErrorMessage = "Please enter a category.")]
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+
+        public string Slug =>
+            FirstName.ToLower() + '-' + LastName.ToLower() + ContactID.ToString();
     }
 }
