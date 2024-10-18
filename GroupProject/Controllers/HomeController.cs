@@ -1,5 +1,5 @@
-using GroupProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace GroupProject.Controllers
@@ -13,20 +13,18 @@ namespace GroupProject.Controllers
             _logger = logger;
         }
 
+        // Default action to display the home page
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            _logger.LogInformation("Index action called.");
+            return View();  // Simply return the view
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _logger.LogError("Error action called.");
+            return View(new Models.ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
