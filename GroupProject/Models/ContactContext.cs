@@ -8,12 +8,11 @@ namespace GroupProject.Models
             : base(options)
         { }
 
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Contact> Contacts { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().HasData(
@@ -36,6 +35,7 @@ namespace GroupProject.Models
                     Email = "huda.judeh@southeasttech.edu",
                     Organization = "Southeast Technial College",
                     CategoryID = 4
+
                 },
 
                 new Contact
@@ -46,6 +46,7 @@ namespace GroupProject.Models
                     Phone = "225-987-5555",
                     Email = "ducotemike@yahoo.com",
                     CategoryID = 2
+
                 },
 
                 new Contact
@@ -57,6 +58,7 @@ namespace GroupProject.Models
                     Email = "tom.winker@winfieldcorp.com",
                     Organization = "Winfield Corporation",
                     CategoryID = 3
+
                 },
 
                 new Contact
@@ -67,7 +69,8 @@ namespace GroupProject.Models
                     Phone = "605-555-9876",
                     Email = "drmattb@siouxfallschiro.com",
                     Organization = "Sioux Falls Chiropractic",
-                    CategoryID = 2
+                    CategoryID = 6
+
                 },
 
                 new Contact
@@ -79,6 +82,7 @@ namespace GroupProject.Models
                     Email = "arends.em@gmail.com",
                     CategoryID = 7
                 }
+
             );
         }
     }

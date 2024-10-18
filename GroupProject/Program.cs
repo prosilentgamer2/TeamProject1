@@ -1,9 +1,17 @@
+using GroupProject.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ContactContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("ContactContext")));
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline. something
 if (!app.Environment.IsDevelopment())
