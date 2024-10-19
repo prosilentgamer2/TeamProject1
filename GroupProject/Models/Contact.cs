@@ -32,6 +32,6 @@ namespace GroupProject.Models
         public DateTime DateAdded { get; set; } = DateTime.Now;  // Defaulting to current date
 
         public string Slug =>
-            FirstName?.ToLower() + '-' + LastName?.ToLower();
+            FirstName?.ToLower() + '-' + LastName?.ToLower() + '-' + ContactID.ToString();
     }
 }
