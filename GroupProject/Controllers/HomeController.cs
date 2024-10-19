@@ -1,28 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using GroupProject.Models;  // Adjust the namespace to match your project
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace GroupProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ContactContext _context;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ContactContext ctx)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _context = ctx;
+            _logger = logger;
         }
 
-        // Index action that returns a list of contacts
+        // Default action to display the home page
         public IActionResult Index()
         {
-            // Fetch contacts from the database, including related Category
-            var contacts = _context.Contacts
-                .Include(c => c.Category)  // Include the Category object
-                .OrderBy(c => c.LastName)  // Order by last name
-                .ToList();
+            _logger.LogInformation("Index action called.");
+            return View();  // Simply return the view
+        }
 
-            return View(contacts);  // Pass the contacts list to the view
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            _logger.LogError("Error action called.");
+            return View(new Models.ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
