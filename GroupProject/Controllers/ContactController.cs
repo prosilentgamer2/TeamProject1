@@ -51,16 +51,17 @@ namespace GroupProject.Controllers
 
         // Action to handle form submission for adding a new contact
         [HttpPost]
-        public IActionResult Add(Contact model)
-        {
-            if (ModelState.IsValid)
-            {
-                _logger.LogInformation("New contact added.");
-                // Logic to save contact goes here in the future
-                return RedirectToAction("Index");  // Redirect back to the list of contacts
-            }
-            return View(model);  // Return to the form if model validation fails
-        }
+public IActionResult Add(Contact model)
+{
+    if (ModelState.IsValid)
+    {
+        model.DateAdded = DateTime.Now;  // Set the current date and time when adding a contact
+        _logger.LogInformation("New contact added.");
+        // Logic to save the contact goes here
+        return RedirectToAction("Index");
+    }
+    return View(model);  // Return to the form if validation fails
+}
 
         // Action to show the form for editing an existing contact
         public IActionResult Edit(int id)

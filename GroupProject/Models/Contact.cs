@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace GroupProject.Models
@@ -19,11 +20,13 @@ namespace GroupProject.Models
         [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string? Email { get; set; }
 
-        public string? Organization {  get; set; }
+        public string? Organization { get; set; }
 
         [Range(0, Int32.MaxValue, ErrorMessage = "Please enter a category.")]
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+
+        public DateTime DateAdded { get; set; }  // New property to track the date the contact was added
 
         public string Slug =>
             FirstName.ToLower() + '-' + LastName.ToLower();
