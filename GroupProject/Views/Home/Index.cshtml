@@ -1,11 +1,11 @@
-﻿@model List<Contact>
+﻿@model List<GroupProject.Models.Contact>
 @{
     ViewBag.Title = "Contact Manager";
 }
 
 <h2>Contact Manager</h2>
 
-<a asp-controller="Movie" asp-action="Add">Add Contact</a>
+<a asp-controller="Contact" asp-action="Add">Add Contact</a> <!-- Fixed controller name here -->
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
                 <td>@contact.LastName</td>
                 <td>@contact.Phone</td>
                 <td>@contact.Email</td>
-                <td>@contact.Category</td>
+                <td>@contact.Category.Name</td> <!-- Adjust based on your Category model -->
                 <td>
                     <a asp-controller="Contact" asp-action="Edit" asp-route-id="@contact.ContactID" asp-route-slug="@contact.Slug">Edit</a>
                     <a asp-controller="Contact" asp-action="Delete" asp-route-id="@contact.ContactID" asp-route-slug="@contact.Slug">Delete</a>
