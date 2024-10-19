@@ -34,7 +34,9 @@ namespace GroupProject.Models
                     Phone = "605-555-1234",
                     Email = "huda.judeh@southeasttech.edu",
                     Organization = "Southeast Technial College",
-                    CategoryID = 4
+                    CategoryID = 4,
+                    DateAdded = DateTime.Today
+                    
 
                 },
 
@@ -45,7 +47,8 @@ namespace GroupProject.Models
                     LastName = "Ducote",
                     Phone = "225-987-5555",
                     Email = "ducotemike@yahoo.com",
-                    CategoryID = 2
+                    CategoryID = 2,
+                    DateAdded = DateTime.Today
 
                 },
 
@@ -57,7 +60,8 @@ namespace GroupProject.Models
                     Phone = "605-555-6789",
                     Email = "tom.winker@winfieldcorp.com",
                     Organization = "Winfield Corporation",
-                    CategoryID = 3
+                    CategoryID = 3,
+                    DateAdded = DateTime.Today
 
                 },
 
@@ -69,7 +73,8 @@ namespace GroupProject.Models
                     Phone = "605-555-9876",
                     Email = "drmattb@siouxfallschiro.com",
                     Organization = "Sioux Falls Chiropractic",
-                    CategoryID = 6
+                    CategoryID = 6,
+                    DateAdded = DateTime.Today
 
                 },
 
@@ -80,7 +85,8 @@ namespace GroupProject.Models
                     LastName = "Arends",
                     Phone = "320-456-7890",
                     Email = "arends.em@gmail.com",
-                    CategoryID = 7
+                    CategoryID = 7,
+                    DateAdded = DateTime.Today
                 }
 
             );

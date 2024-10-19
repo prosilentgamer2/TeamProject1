@@ -26,7 +26,7 @@ namespace GroupProject.Models
         public int CategoryID { get; set; }
         public Category Category { get; set; }
 
-        public DateTime DateAdded { get; set; }  // New property to track the date the contact was added
+         public DateTime DateAdded { get; set; }  // New property to track the date the contact was added
 
         public string Slug =>
             FirstName.ToLower() + '-' + LastName.ToLower();

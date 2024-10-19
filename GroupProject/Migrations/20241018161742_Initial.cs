@@ -22,7 +22,8 @@ namespace GroupProject.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Organization = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    
                 },
                 constraints: table =>
                 {
