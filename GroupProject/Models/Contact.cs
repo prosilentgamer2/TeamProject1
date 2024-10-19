@@ -5,6 +5,7 @@ namespace GroupProject.Models
 {
     public class Contact
     {
+        [Key]
         public int ContactID { get; set; }
 
         [Required(ErrorMessage = "Please enter a first name.")]
