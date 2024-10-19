@@ -14,7 +14,7 @@ namespace GroupProject.Models
         [Required(ErrorMessage = "Please enter a last name.")]
         public string? LastName { get; set; }
 
-        [Required(ErrorMessage = "Please enter a valid phone number")]
+        [Required(ErrorMessage = "Please enter a valid phone number.")]
         public string? Phone { get; set; }
 
         [Required(ErrorMessage = "Please enter an email.")]
@@ -25,11 +25,13 @@ namespace GroupProject.Models
 
         [Range(0, Int32.MaxValue, ErrorMessage = "Please enter a category.")]
         public int CategoryID { get; set; }
-        public Category Category { get; set; }
 
-        public DateTime DateAdded { get; set; }  // New property to track the date the contact was added
+        // Making Category nullable to avoid CS8618 warnings
+        public Category? Category { get; set; }
+
+        public DateTime DateAdded { get; set; } = DateTime.Now;  // Defaulting to current date
 
         public string Slug =>
-            FirstName.ToLower() + '-' + LastName.ToLower();
+            FirstName?.ToLower() + '-' + LastName?.ToLower();
     }
 }
