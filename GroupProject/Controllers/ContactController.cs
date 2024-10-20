@@ -68,7 +68,10 @@ namespace GroupProject.Controllers
         public IActionResult Add()
         {
             _logger.LogInformation("Add contact form accessed.");
-            return View();  
+            ViewData["Category"] = _context.Categories.ToList();
+            ViewData["Action"] = "Add";
+
+            return View("Edit", new Contact());  
         }
 
         [HttpPost]
@@ -90,7 +93,9 @@ namespace GroupProject.Controllers
         public IActionResult Edit(int id)
         {
             _logger.LogInformation($"Edit contact form accessed for contact with ID: {id}");
+            ViewData["Action"] = "Edit";
 
+            ViewData["Category"] = _context.Categories.ToList(); 
             var contact = _context.Contacts
                 .Include(c => c.Category)
                 .FirstOrDefault(c => c.ContactID == id); 
