@@ -20,11 +20,11 @@ namespace GroupProject.Controllers
         public IActionResult Index()
         {
             var contacts = context.Contacts
-                .Include(c => c.Category) // Include the Category navigation property
+                .Include(c => c.Category) 
                 .OrderBy(c => c.LastName)
                 .ToList();
 
-            return View(contacts); // Return the view with the contacts
+            return View(contacts);
         }
 
 
